@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar, NavItem, Nav, Panel, Alert, Modal, Button } from 'react-bootstrap';
 
+import makeApiCall from './makeApiCall';
 
 class TherapySurvey extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            name: this.props.name,
+            email: this.props.email,
             individual: false,
             couples: false,
             group: false,
@@ -37,7 +40,7 @@ class TherapySurvey extends Component {
     handleSubmit(event) {
         event.preventDefault();
         console.log("state of the user", this.state);
-        //here is where we call API to submit form
+        makeApiCall.saveUser(this.state)
     }
 
     render() {
