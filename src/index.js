@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { AppContainer } from "react-hot-loader";
-import registerServiceWorker from "./registerServiceWorker";
+
+import "typeface-roboto";
+import "bulma/css/bulma.css";
 
 const render = Component => {
   ReactDOM.render(
