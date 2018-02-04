@@ -1,7 +1,7 @@
 # Operation Phonetree
 
 backend:
-- before running this project, please pip install the following modules: flask, json, flask_restful. (eg.: run  "pip install flask" on the command line, for each of the aforementioned modules.  
+- before running this project, please pip install the following modules: flask, json, flask_restful. (eg.: run  "pip install flask" on the command line, for each of the aforementioned modules).  
 - config.py: contains configuration data of the firebrand interaction: api, database url, other database information. 
   - "serviceAccount" will always have to be set to the sdk file (currently defined as "../therapy-finder-firebase-adminsdk-fu06d-e4485b8bde.json", as its in the directory above the config file. If this is not included, permissions issues will occur.
 - database.py: this is where the interactions with firebrand exist. There will be interactions with getting, updating, and creating users in the firebrand database. 
