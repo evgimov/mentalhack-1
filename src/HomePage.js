@@ -20,8 +20,12 @@ class HomePage extends Component {
     super(props);
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+
     this.state = { 			
-      canSubmit: false
+      canSubmit: false,
+      patientName: "",
+      patientEmail: ""
 		};
   }
 
@@ -33,6 +37,14 @@ class HomePage extends Component {
     this.setState({ canSubmit: true });
   }
 
+  handleInputChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+    console.log(value, name);
+    this.setState({
+      [name]: value
+    });
+  }
 
   render() {
     return (
@@ -41,27 +53,31 @@ class HomePage extends Component {
 				
             <Row className="show-grid main-bg">
                 <Col xs={6} md={4} className="centered">
-									<h2>Need help?</h2>
+									<h2>Need help</h2>
 									<h4>Please, fill out the form</h4>
-									<Formsy onValidSubmit={this.submitForm} onValid={this.enableButton} onInvalid={this.disableButton}>
-										<MyInput
-                      name="name"
-                      value=""
-                      placeholder="Enter your name"
-                      label="Name"
-										/>
-										<MyInput
-											name="email"
-                      value=""
-                      placeholder="Enter your email"
-                      label="Email"
-										/>
+									<form>
+                  <label>
+                        Your name
+                        <input
+                            name="patientName"
+                            type="text"
+                            onChange={(e)=> this.handleInputChange(e)} />
+                    </label>
+                    <br />
+                    <label>
+                        Your email
+                        <input
+                            name="patientEmail"
+                            type="text"
+                            onChange={(e)=> this.handleInputChange(e)} />
+                    </label>
+                    <br />
                     <Link to={{
                         pathname: '/survey',
-                      state: { patientName: "Erica", patientEmail: "test@email.com" }
-                      }} ><button type="submit" disabled={!this.state.canSubmit}>Submit</button></Link>
+                      state: { patientName: this.state.patientName, patientEmail: this.state.patientEmail }
+                      }} ><button type="submit">Submit</button></Link>
 										
-									</Formsy>
+									</form>
                 </Col>
             </Row>
 	      </Grid>	
