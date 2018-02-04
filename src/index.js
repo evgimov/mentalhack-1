@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
 import "./index.css";
 import App from "./App";
-import { AppContainer } from "react-hot-loader";
+
 
 import "typeface-roboto";
-import "bulma/css/bulma.css";
+//import "bulma/css/bulma.css";
 
 const render = Component => {
   ReactDOM.render(
