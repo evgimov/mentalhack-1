@@ -4,9 +4,7 @@ from flask import Flask, request, jsonify
 import json
 from flask_restful import reqparse, Api, Resource
 from config import config
-from database import database, update_data_customKey, push_data, getUser
-from auth import authentication as auth
-from user import create_user as create, refresh_user_token as refresh, get_info
+from database import database, update_data_customKey, push_data, getUser, updateUser
 
 app = Flask(__name__)
 api = Api(app)
@@ -27,10 +25,15 @@ class user(Resource):
         return data,200
 
     def post(self):
-        args = parser.parse_args()
         dataDict = json.loads(request.data)
         uid = push_data(dataDict)
         return {"user_id":uid}
+
+    def put(self):
+        dataDict = json.loads(request.data)
+        uid = request.args.get('user_id')
+        data = updateUser(uid, dataDict)
+        return 200
 
 #
 # Actually setup the Api resource routing here

@@ -1,6 +1,5 @@
 from config import config
 
-
 def database():
     firebase = config()
     db = firebase.database()
@@ -13,6 +12,13 @@ def getUser(user_id):
     db = firebase.database()
     user = db.child("users").child(user_id).get().val()
     return user
+
+def updateUser(user_id,jsonObj):
+    firebase = config()
+    db = firebase.database()
+    db.child("users").child(user_id).update(jsonObj)
+    return
+
 
 def push_data(dataDict):
     firebase = config()
