@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+
 class TherapySurvey extends Component {
 
     constructor(props) {
@@ -41,6 +43,7 @@ class TherapySurvey extends Component {
     render() {
         return (
             <div className="therapySurvey">
+                <h1>{this.props.location.state.patientName}</h1>
                 <form>
                     <div>There are many ways to receive therapy. Which of the following types would you be interested in?</div>
                     <label>
