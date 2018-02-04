@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from 'material-ui/Button';
+import React, { Component } from "react";
+import NavBar from "./Components/NavBar";
+import Hero from "./Components/Hero";
 
 class App extends Component {
   render() {
     return (
-      <Button raised color="primary">
-        Hello World
-      </Button>
+      <div>
+        <NavBar />
+        <Hero />
+      </div>
     );
   }
 }
