@@ -26,3 +26,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/*Custom styles*/
+html, body {
+  height: 100%;
+  
+}
+.container-fluid {
+  height: 1000px;
+}
+
+.main-bg {
+  background-image: url("img/main.png");
+  background-size: cover;
+  height: 100%;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+
+
+
+
+
